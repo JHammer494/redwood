@@ -5,7 +5,7 @@ import ${singularPascalName} from '${importComponentName}'
 
 export const QUERY = gql`
   query Find${singularPascalName}ById($id: ${idType}!) {
-    ${singularCamelName}: ${singularCamelName}(id: $id) {<% columns.forEach(column => { %>
+    ${singularCamelName}: ${singularCamelName}(${idString}: $id) {<% columns.forEach(column => { %>
       <%= column.name %><% }) %>
     }
   }

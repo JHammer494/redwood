@@ -9,14 +9,14 @@ import ${singularPascalName}Form from '${importComponentNameForm}'
 
 export const QUERY = gql`
   query Edit${singularPascalName}ById($id: ${idType}!) {
-    ${singularCamelName}: ${singularCamelName}(id: $id) {<% columns.forEach(column => { %>
+    ${singularCamelName}: ${singularCamelName}(${idString}: $id) {<% columns.forEach(column => { %>
       <%= column.name %><% }) %>
     }
   }
 `
 const UPDATE_${singularConstantName}_MUTATION = gql`
   mutation Update${singularPascalName}Mutation($id: ${idType}!, $input: Update${singularPascalName}Input!) {
-    update${singularPascalName}(id: $id, input: $input) {<% columns.forEach(column => { %>
+    update${singularPascalName}(${idString}: $id, input: $input) {<% columns.forEach(column => { %>
       <%= column.name %><% }) %>
     }
   }
@@ -47,7 +47,7 @@ export const Success = ({ ${singularCamelName} }: CellSuccessProps<Edit${singula
   return (
     <div className="rw-segment">
       <header className="rw-segment-header">
-        <h2 className="rw-heading rw-heading-secondary">Edit ${singularPascalName} {${singularCamelName}.id}</h2>
+        <h2 className="rw-heading rw-heading-secondary">Edit ${singularPascalName} {${singularCamelName}.${idString}}</h2>
       </header>
       <div className="rw-segment-main">
         <${singularPascalName}Form ${singularCamelName}={${singularCamelName}} onSave={onSave} error={error} loading={loading} />

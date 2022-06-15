@@ -6,7 +6,7 @@ import ${singularPascalName}Form from '${importComponentNameForm}'
 const CREATE_${singularConstantName}_MUTATION = gql`
   mutation Create${singularPascalName}Mutation($input: Create${singularPascalName}Input!) {
     create${singularPascalName}(input: $input) {
-      id
+      ${idString}
     }
   }
 `

@@ -30,7 +30,7 @@ const ${singularPascalName}Form = (props) => {
       }
     <% } %>
   <% }) %>
-    props.onSave(data, props?.${singularCamelName}?.id)
+    props.onSave(data, props?.${singularCamelName}?.${idString})
   }
 
   return (
